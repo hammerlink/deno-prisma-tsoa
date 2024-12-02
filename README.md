@@ -6,28 +6,40 @@ This repository demonstrates an ongoing issue with integrating Prisma in a Deno 
 
 While trying to migrate an existing Node.js project to Deno, I'm encountering challenges with Prisma integration. The `--no-engine` flag works for edge PostgreSQL databases, but fails when working with locally hosted PostgreSQL instances.
 
+When you try to access a local postgresql with the no-engine flag you get the following error:
+```
+Error validating datasource 'db': the URL must start with the protocol 'prisma://'
+```
+
 ## Current Setup
 
 ### 1. PostgreSQL Database
+
 Start the PostgreSQL database using Docker:
+
 ```bash
 docker compose up -d
 ```
 
 ### 2. Dependencies Installation
+
 Install the required Prisma dependencies:
+
 ```bash
 deno install --allow-scripts=npm:@prisma/client@6.0.0,npm:prisma@6.0.0,npm:@prisma/engines@6.0.0
 ```
 
 ### 3. Prisma Setup
+
 Run the following Prisma tasks:
+
 ```bash
 deno task prisma:generate
 deno task prisma:migrate
 ```
 
 ### 4. Start the Server
+
 ```bash
 deno task quickstart
 ```
@@ -35,6 +47,7 @@ deno task quickstart
 ## Current Error
 
 When starting the server, the following error occurs:
+
 ```
 Task quickstart deno run --allow-ffi --allow-env --allow-read --allow-net src/app.ts --env-file=.env
 Warning experimentalDecorators compiler option is deprecated and may be removed at any time
