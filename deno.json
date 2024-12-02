@@ -1,0 +1,31 @@
+{
+    "tasks": {
+        "prisma:migrate": "deno run -A --unstable npm:prisma@latest migrate deploy",
+        "prisma:generate": "deno run -A --unstable npm:prisma@latest generate",
+        "tsoa": "tsoa routes && tsoa spec",
+        "quickstart": "deno run --allow-ffi --allow-env --allow-read --allow-net src/app.ts --env-file=.env"
+    },
+    "nodeModulesDir": "auto",
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 80,
+        "indentWidth": 4,
+        "semiColons": true,
+        "singleQuote": true,
+        "proseWrap": "preserve",
+        "include": ["src/"],
+        "exclude": ["node_modules/"]
+    },
+    "imports": {
+        "@prisma/client": "npm:@prisma/client@^6.0.0",
+        "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
+        "@std/path": "jsr:@std/path@^1.0.8",
+        "express": "npm:express@^4.21.1",
+        "prisma": "npm:prisma@^6.0.0",
+        "tsoa": "npm:tsoa@^6.5.1"
+    }
+}

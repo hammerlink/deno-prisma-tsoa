@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  deno-prisma-tsoa-pg:
+      image: 'postgres:16-alpine'
+      restart: always
+      environment:
+          - POSTGRES_DB=deno_test
+          - POSTGRES_USER=deno_admin
+          - POSTGRES_PASSWORD=deno_admin_pw
+      volumes:
+          - deno-prisma-tsoa-data:/var/lib/postgresql/data
+      ports:
+          - '5439:5432'
+
+volumes:
+  deno-prisma-tsoa-data:

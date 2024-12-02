@@ -1,0 +1,17 @@
+generator client {
+    engineType      = "library"
+    provider        = "prisma-client-js"
+    previewFeatures = ["deno"]
+    output          = "../generated/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = "postgresql://deno_admin:deno_admin_pw@localhost:5439/deno_test?schema=public"
+}
+
+model User {
+    id    Int     @id @default(autoincrement())
+    email String  @unique
+    name  String?
+}
