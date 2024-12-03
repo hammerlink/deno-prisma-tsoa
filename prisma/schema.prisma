@@ -1,5 +1,5 @@
 generator client {
-    engineType      = "library"
+    engineType      = "binary"
     provider        = "prisma-client-js"
     previewFeatures = ["deno"]
     output          = "../generated/client"

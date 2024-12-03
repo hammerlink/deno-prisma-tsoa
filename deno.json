@@ -5,7 +5,7 @@
         "prisma:convert-cjs": "deno run --allow-read --allow-write ./prisma/convert-cjs.ts",
         "prisma:generate": "deno task prisma:cleanup && deno run -A --unstable npm:prisma@latest generate && deno task prisma:convert-cjs",
         "tsoa": "tsoa routes && tsoa spec",
-        "quickstart": "deno run --allow-ffi --allow-env --allow-read --allow-net src/app.ts --env-file=.env"
+        "quickstart": "deno run --allow-ffi --allow-env --allow-run --allow-read --allow-net src/app.ts --env-file=.env"
     },
     "nodeModulesDir": "auto",
     "compilerOptions": {
