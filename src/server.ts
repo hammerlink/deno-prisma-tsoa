@@ -19,6 +19,6 @@ export async function bootstrapServer() {
         () => console.log(`Server running in  mode on ${host}:${port}`),
     );
 
-    const sampleCount = await prisma().user.count();
+    const sampleCount = await prisma.user.count();
     console.log('sample count:', sampleCount);
 }

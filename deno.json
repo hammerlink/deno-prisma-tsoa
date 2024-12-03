@@ -1,7 +1,9 @@
 {
     "tasks": {
         "prisma:migrate": "deno run -A --unstable npm:prisma@latest migrate deploy",
-        "prisma:generate": "deno run -A --unstable npm:prisma@latest generate",
+        "prisma:cleanup": "deno run --allow-read --allow-write ./prisma/cleanup.ts",
+        "prisma:convert-cjs": "deno run --allow-read --allow-write ./prisma/convert-cjs.ts",
+        "prisma:generate": "deno task prisma:cleanup && deno run -A --unstable npm:prisma@latest generate && deno task prisma:convert-cjs",
         "tsoa": "tsoa routes && tsoa spec",
         "quickstart": "deno run --allow-ffi --allow-env --allow-read --allow-net src/app.ts --env-file=.env"
     },
@@ -23,6 +25,7 @@
     "imports": {
         "@prisma/client": "npm:@prisma/client@^6.0.0",
         "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
+        "@std/fs": "jsr:@std/fs@^1.0.6",
         "@std/path": "jsr:@std/path@^1.0.8",
         "express": "npm:express@^4.21.1",
         "prisma": "npm:prisma@^6.0.0",

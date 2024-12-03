@@ -1,11 +1,8 @@
-import { PrismaClient } from '../../../generated/client/deno/edge.ts';
+import type { PrismaClient } from '../../../generated/client/index.d.ts';
+import * as Prisma from '../../../generated/client/index.cjs';
 
-export let prismaClient: PrismaClient | undefined;
+export const prisma: PrismaClient = new Prisma.PrismaClient({
+    log: ['query', 'warn', 'error'],
+});
 
-export function prisma() {
-    if (prismaClient) return prismaClient;
-    prismaClient = new PrismaClient({
-        log: ['query', 'warn', 'error'],
-    });
-    return prismaClient;
-}
+export default prisma;

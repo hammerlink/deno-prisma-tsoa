@@ -3,6 +3,8 @@
   "specifiers": {
     "jsr:@std/dotenv@*": "0.225.2",
     "jsr:@std/dotenv@~0.225.2": "0.225.2",
+    "jsr:@std/fs@*": "1.0.6",
+    "jsr:@std/fs@^1.0.6": "1.0.6",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "npm:@prisma/client@6": "6.0.0_prisma@6.0.0",
     "npm:@tsoa/runtime@*": "6.5.1",
@@ -15,6 +17,12 @@
   "jsr": {
     "@std/dotenv@0.225.2": {
       "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
+    },
+    "@std/fs@1.0.6": {
+      "integrity": "42b56e1e41b75583a21d5a37f6a6a27de9f510bcd36c0c85791d685ca0b85fa2",
+      "dependencies": [
+        "jsr:@std/path"
+      ]
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
@@ -1086,6 +1094,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/dotenv@~0.225.2",
+      "jsr:@std/fs@^1.0.6",
       "jsr:@std/path@^1.0.8",
       "npm:@prisma/client@6",
       "npm:express@^4.21.1",
